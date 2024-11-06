@@ -9,7 +9,7 @@
 <body>
     <header>
         <h1>
-            Let's Go List 
+            To-Do List 
         </h1>
         <p>
             Create your plan for today:
@@ -17,51 +17,30 @@
     </header>
 
     <main>
-        <section class="creation">
-            <section class="section1_1">
-                <h2>
-                    Create a new task:
-                </h2>
-                <form id="taskForm" action="" method="get">
-                    <label for="taskName">Name: </label>
-                    <input placeholder="'Finish TMS project'" type="text" name="task" id="name"><br><br>
-                    <label for="description">Description: </label><br>
-                    <textarea type="text" name="description" id="description"></textarea><br><br>
-
-                    <div id="priorityBox">
-                        <select name="priority" id="priority">
-                            <option value="" disabled selected>Priority</option>
-                            <option value="1">Critical</option>
-                            <option value="2">Medium</option>
-                            <option value="3">Low</option>
-                        </select>
-                    </div><br>
-
-                    <div id="categoryBox">
-                        <input type="text" list="categories" placeholder="Type name or pick from below"/>
-                        <datalist id="categories">
-                        <option>Work</option>
-                        <option>Home</option>
-                        <option>School</option>
-                        </datalist>
-                    </div><br>
-    
-                    <button class="add" type="submit">Add</button>
-                    <button class="clean" type="reset">Clear</button>
-    
-                </form>
-            </section>
-    
-            <section class="section1_2">
-                <h2>
-                    Your List
-                </h2>
-                <p id="results" class="taskContainer"></p>
-            </section>
-    
+        <section id="creation" class="container">
+            <h2>Create a new task here:</h2>
+            
+            <form id="taskForm" action="" method="get">
+                    <label for="name">Name: </label>
+                      <div class="row">
+                          <input placeholder="'Finish TMS project'" type="text" id="name"><br><br>
+                          <button class="add" type="submit"><img src="/img/add.png"></button>
+                          <!-- <label for="description">Description: </label><br>
+                          <textarea type="text" id="description"></textarea><br><br> 
+                          -->
+                        </div>  
+                          
+                       <!--  <button class="clean" type="reset">Clear</button> -->
+            </form>
         </section>
+    
+        <ul id ="listview" class="container">
+                <h2>Your List</h2>
+                <p id="results" class="taskContainer"></p>
+        </ul>
     </main>
     
     <script src="app.js"></script>
+    
 </body>
 </html>
