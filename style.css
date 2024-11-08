@@ -1,3 +1,5 @@
+
+
 header{
     color: #353535;
     background-color: white;
@@ -42,11 +44,11 @@ label{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: aliceblue;
+    background-color: ghostwhite;
     border-radius: 30px;
     padding-left: 20px;
     height: 40px;
-    width: 300px;
+    width: 350px;
     border: none;
 }
 
@@ -56,16 +58,32 @@ label{
     justify-content: space-between;
     background-color: ghostwhite;
     border-radius: 30px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
-button{
+button{ 
     border: none;
     outline: none;
-    background-color: ghostwhite;
-    border-radius: 30px;
+    background-color: olive;
+    padding: 16px 50px;
+    color: ghostwhite;
+    font-size: 15px;
+    
+    cursor: pointer;
+    border-radius: 40px;
 }
-button img{ 
-    height: 40px;
-    width: 40px;
+
+ul li{
+    font-size: 18px;
+    list-style: none;
+    padding: 12px;
+    cursor: pointer;
+    user-select: none;
 }
+
+li.hover {
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+

@@ -23,24 +23,26 @@
             <form id="taskForm" action="" method="get">
                     <label for="name">Name: </label>
                       <div class="row">
-                          <input placeholder="'Finish TMS project'" type="text" id="name"><br><br>
-                          <button class="add" type="submit"><img src="/img/add.png"></button>
-                          <!-- <label for="description">Description: </label><br>
-                          <textarea type="text" id="description"></textarea><br><br> 
-                          -->
+                          <input placeholder="'Finish TMS project'" type="text" id="name">
+                          <button class="add" type="submit">Add</button>
                         </div>  
-                          
+                       
                        <!--  <button class="clean" type="reset">Clear</button> -->
             </form>
         </section>
     
         <ul id ="listview" class="container">
                 <h2>Your List</h2>
+
+                <ul id="taskList">
+                    <li>Task 1</li>
+
+                </ul>
                 <p id="results" class="taskContainer"></p>
         </ul>
     </main>
     
     <script src="app.js"></script>
-    
+
 </body>
 </html>
