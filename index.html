@@ -6,43 +6,66 @@
     <title>To-Do List</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
+
 <body>
-    <header>
-        <h1>
-            To-Do List 
-        </h1>
-        <p>
-            Create your plan for today:
-        </p>
-    </header>
+    <h1>To-Do List</h1>
 
-    <main>
-        <section id="creation" class="container">
-            <h2>Create a new task here:</h2>
-            
-            <form id="taskForm" action="" method="get">
-                    <label for="name">Name: </label>
-                      <div class="row">
-                          <input placeholder="'Finish TMS project'" type="text" id="name">
-                          <button class="add" type="submit">Add</button>
-                        </div>  
-                       
-                       <!--  <button class="clean" type="reset">Clear</button> -->
+    <div class="container">
+        <div id="creation" class="subcontainer">
+            <button onclick="openCreator()" name="plus" class="open-button">+</button>
+        </div>
+        
+        <div class="creator-popup" id="createTask">
+            <form class="form-container">
+                <button type="button" class="cancel" onclick="closeCreator()">X</button>
+                <h2>Create a new task</h2>
+                <label for="name">Name</label>
+                <input type="text" placeholder="Finish TMS project . . ." name="name" required>
+
+                <label for="details">Details</label>
+                <input type="text" placeholder="Review requirements . . ." name="details">
+
+                <label for="priority">Priority</label>
+                <select name="priority">
+                    <option value="5">Do it yesterday ! ! !</option>
+                    <option value="4">Get on it NOW</option>
+                    <option value="3">On my radar</option>
+                    <option value="2">It can wait</option>
+                    <option value="1">Eh, someday maybe</option>
+                </select>
+                <br><br>
+                <label for="date">Deadline?</label>
+                <input type="date" placeholder="today" name="date">
+
+                <button type="submit" class="btn">Create</button>
+                
             </form>
-        </section>
-    
-        <ul id ="listview" class="container">
-                <h2>Your List</h2>
+        </div>
+        
+        <div id="list" class="subcontainer">
+            <ul id=listview class="accordion">
+                <li>
+                    <div class="header">task1</div>
+                    <div class="content">
+                        <p>details, priority, deadline</p>
+                    </div>
+                <li>task2</li>
+                <li>task3</li>
+                <li>task4</li>
+            </ul>
+        </div>
+        
+        <div class="subcontainer" >
+            <p>Look at everything you've already done!</p>
+        </div>
+        </div>
+    </div>
 
-                <ul id="taskList">
-                    <li>Task 1</li>
-
-                </ul>
-                <p id="results" class="taskContainer"></p>
-        </ul>
-    </main>
-    
     <script src="app.js"></script>
 
 </body>
-</html>
+
+<footer>
+    <p>Designed by V. Alvarez and S. Lopez</p>
+</footer>
