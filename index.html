@@ -17,17 +17,21 @@
         </div>
         
         <div class="creator-popup" id="createTask">
-            <form class="form-container">
-                <button type="button" class="cancel" onclick="closeCreator()">X</button>
-                <h2>Create a new task</h2>
-                <label for="name">Name</label>
-                <input type="text" placeholder="Finish TMS project . . ." name="name" required>
+            <form class="form-container" id="creationForm">
+                <div class="header-wrapper">
+                    <h2>Create a new task</h2>
+                    <button type="button" class="cancel" onclick="closeCreator()">X</button>
+                </div>
+
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Finish TMS project . . ." name="name" required>
 
                 <label for="details">Details</label>
                 <input type="text" placeholder="Review requirements . . ." name="details">
 
-                <label for="priority">Priority</label>
+                <label for="priority">How urgent is it?</label>
                 <select name="priority">
+                    <option value="0">choose</option>
                     <option value="5">Do it yesterday ! ! !</option>
                     <option value="4">Get on it NOW</option>
                     <option value="3">On my radar</option>
@@ -35,8 +39,8 @@
                     <option value="1">Eh, someday maybe</option>
                 </select>
                 <br><br>
-                <label for="date">Deadline?</label>
-                <input type="date" placeholder="today" name="date">
+                <label for="deadline">Deadline?</label>
+                <input type="date" placeholder="today" name="deadline">
 
                 <button type="submit" class="btn">Create</button>
                 
@@ -45,19 +49,17 @@
         
         <div id="list" class="subcontainer">
             <ul id=listview class="accordion">
-                <li>
-                    <div class="header">task1</div>
-                    <div class="content">
-                        <p>details, priority, deadline</p>
+                <li class="taskTitle">
+                    <div class="header" onclick="showDetails(self)">you have no tasks</div>
+                    <div id = "detail" class="content">
                     </div>
-                <li>task2</li>
-                <li>task3</li>
-                <li>task4</li>
+                </li>
+        
             </ul>
         </div>
         
         <div class="subcontainer" >
-            <p>Look at everything you've already done!</p>
+            <p>Look at everything you've done!</p>
         </div>
         </div>
     </div>

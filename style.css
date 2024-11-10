@@ -66,10 +66,10 @@ h1{
     cursor: pointer;
 }
 
-.creator-popup {
+#createTask {
     width: 100%;
     box-sizing: border-box;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     position: absolute;
 
@@ -85,11 +85,21 @@ h1{
     text-align: center;
 
     
-    background-color: #fcbf93;
+    background-color: #fefefe;
     color:#415111;
 
     border-radius: 20px;
     padding: 50px;
+  }
+
+  .header-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+  .header-wrapper h2{
+    width: 90%;
   }
 
   .form-container input[type=text], .form-container select, .form-container input[type=date] {
@@ -100,7 +110,7 @@ h1{
     margin: 15px;
     border: none;
     border-radius: 20px;
-    background: #fefefe;
+    background: #fcbf93;
     box-shadow: none;
     
   }
@@ -116,12 +126,18 @@ h1{
     background-color:#fb8159;
     outline: none;
   }
-
+  .form-container select{
+    appearance: none;
+    padding: 15px;
+  }
   .form-container .btn {
-    background-color:#415111;
-    color: white;
+    background-color:#d2e186;
+    color: #415111;
+    font-weight: 1000;
+    font-size: large;
     padding: 16px 20px;
     border: none;
+    border-radius: 20px;
     cursor: pointer;
     width: 70%;
     margin-bottom:10px;
@@ -129,11 +145,18 @@ h1{
   }
 
   .form-container .cancel {
-    background-color: #fb8159;
+    width: 10%;
+    height: 30px;
+    border:none;
+    border-radius: 30px;
+    position: relative;
+    background-color: #fcbf93;
+    align-items:flex-end;
+    cursor: pointer;
   }
 
-  .form-container .btn:hover, .open-button:hover {
-    opacity: 1;
+  .form-container .btn:hover, .open-button:hover, .cancel:hover{
+    opacity: 30;
   }
 
 #list{
@@ -170,38 +193,26 @@ li{
     cursor: pointer;
 }
 
+.accordion .header .open:after{
+  content: '';
+}
+
 .accordion .header:hover{
     background-color: #253A82;
     padding: 10px;
+    display: block;
 }
 
-.accordion .header:after{
-    content: '';
-  }
-
-  .accordion .header.done::after{
-    content: '';
-    position: absolute;
-    display: none;
-    padding: 10px;
-    font-size: 1em;
-    background-color: #f1f1f1;
-
-    height: 0px;
-  }
-
- .accordion .content{
-    display: none;
-    overflow: hidden;
+ .content{
+  display: none;
  }
 
- .accordion .content p{
-    margin: 0;
+ .accordion .content::before{
+  display: block;
+  background-color: #C0E0FF;
  }
-
-
  footer{
-    color: #ffb2f7;
+    color:#AB9DFF;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
  }
