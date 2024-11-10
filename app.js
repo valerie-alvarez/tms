@@ -1,15 +1,21 @@
-
-const taskForm = document.getElementById('taskForm');
-
+const taskForm = document.getElementById('creationForm');
 const taskList = [];
-taskForm.addEventListener('submit', event =>{
+
+
+taskForm.addEventListener('submit', event => {
     event.preventDefault();
+    listview.innerHTML='';
     let nombre = event.target.name.value;
-    let description = event.target.description.value;
-    
+    let details = {"Details" : [event.target.details.value],
+                    "Priority" : [event.target.priority.value],
+                    "Deadline" : [event.target.deadline.value]};
+                   
     const Task = {
-        nombre: nombre,
-        description: description,
+        name: nombre,
+        details: details
+        /** priority: document.getElementsByName("priority").value,
+            deadline: document.getElementsByName("deadline").value,
+            finished: "False"*/
     }
 
     taskList.push(Task)
@@ -20,19 +26,42 @@ taskForm.addEventListener('submit', event =>{
 
     const taskList_temp = JSON.parse(localStorage.getItem('taskList'));
     console.log("tarea recuperada: ", taskList_temp);
-    
-    const results = document.getElementById('results');
 
-    if(taskList_temp){
-      taskList_temp.forEach((task) => {
-        results.innerHTML += `
-        <div class="taskElement">
-        <h3>Task Name: ${ task.nombre }</h3>
-        <p>Description: ${ task.description }</p><br>
-        </article>
-        `
-      })
-    }
-} )
+    taskList_temp.forEach(task => {
+        const newli = document.createElement('li');
+        newli.classList.add('taskTitle');
 
+        const ourhtml = `
+         <div class="header" onclick ="showDetails('${task.name}','${task.details.Details}','${task.details.Priority}','${task.details.Deadline}')"> ${task.name}
+        </div>`;
+        
+        newli.innerHTML = ourhtml;
+        listview.appendChild(newli);
+        closeCreator();
 
+    });
+})
+        
+
+function openCreator(){
+    document.getElementById("createTask").style.display="flex";
+}
+
+function closeCreator() {
+    document.getElementById("createTask").style.display = "none";
+    document.getElementById("seeTask").style.display="none";
+}
+
+function showDetails(name,Details,Priority,Deadline){
+    document.getElementById("seeTask").style.display="flex";
+
+    let name1 = document.getElementById("name1");
+    let details1 = document.getElementById("details1");
+    let priority1 = document.getElementById("priority1");
+    let deadline1 = document.getElementById("deadline1");
+
+    name1.value =`${name}`
+    details1.value =`${Details}`
+    priority1.value =`${Priority}`
+    deadline1.value =`${Deadline}`
+}

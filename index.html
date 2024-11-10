@@ -6,43 +6,91 @@
     <title>To-Do List</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
+
 <body>
-    <header>
-        <h1>
-            To-Do List 
-        </h1>
-        <p>
-            Create your plan for today:
-        </p>
-    </header>
+    <h1>To-Do List</h1>
 
-    <main>
-        <section id="creation" class="container">
-            <h2>Create a new task here:</h2>
-            
-            <form id="taskForm" action="" method="get">
-                    <label for="name">Name: </label>
-                      <div class="row">
-                          <input placeholder="'Finish TMS project'" type="text" id="name">
-                          <button class="add" type="submit">Add</button>
-                        </div>  
-                       
-                       <!--  <button class="clean" type="reset">Clear</button> -->
+    <div class="container">
+        <div id="creation" class="subcontainer">
+            <button onclick="openCreator()" name="plus" class="open-button">+</button>
+        </div>
+        
+        <div class="creator-popup" id="createTask">
+            <form class="form-container" id="creationForm">
+                <div class="header-wrapper">
+                    <h2>Create a new task</h2>
+                    <button type="button" class="cancel" onclick="closeCreator()">X</button>
+                </div>
+
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Finish TMS project . . ." name="name" required>
+
+                <label for="details">Details</label>
+                <input type="text" placeholder="Review requirements . . ." name="details">
+
+                <label for="priority">How urgent is it?</label>
+                <select name="priority">
+                    <option value="0">choose</option>
+                    <option value="Do it yesterday ! ! !">Do it yesterday ! ! !</option>
+                    <option value="Get on it NOW">Get on it NOW</option>
+                    <option value="On my radar">On my radar</option>
+                    <option value="It can wait">It can wait</option>
+                    <option value="Eh, someday maybe">Eh, someday maybe</option>
+                </select>
+                <br><br>
+                <label for="deadline">Deadline?</label>
+                <input type="date" placeholder="today" name="deadline">
+
+                <button type="submit" class="btn">Create</button>
+                
             </form>
-        </section>
-    
-        <ul id ="listview" class="container">
-                <h2>Your List</h2>
+        </div>
+        
+        <div class="creator-popup" id="seeTask">
+            <form class="form-container" id="creationForm">
+                <div class="header-wrapper">
+                    <h2>Your Task Information</h2>
+                    <button type="button" class="cancel" onclick="closeCreator()">X</button>
+                </div>
 
-                <ul id="taskList">
-                    <li>Task 1</li>
+                    <label for="name1">Name</label>
+                    <input id="name1" type="text" placeholder="Loading..." name="name1" disabled>
 
-                </ul>
-                <p id="results" class="taskContainer"></p>
-        </ul>
-    </main>
-    
+                <label for="details1">Details</label>
+                <input id="details1" type="text" placeholder="Loading..." name="details1" disabled>
+
+                <label for="priority1">How urgent is it?</label>
+                <input id="priority1" type="text" placeholder="Loading..." name="priority1" disabled>
+
+                <br><br>
+                <label for="deadline1">Deadline?</label>
+                <input id="deadline1" type="date" placeholder="today" name="deadline1" disabled>
+                
+            </form>
+        </div>
+        
+        <div id="list" class="subcontainer">
+            <ul id=listview class="accordion">
+                <li class="taskTitle">
+                    <div class="header" onclick="showDetails(self)">you have no tasks</div>
+                    <div id = "detail" class="content">
+                    </div>
+                </li>
+        
+            </ul>
+        </div>
+        
+        <div class="subcontainer" >
+            <p>Look at everything you've done!</p>
+        </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
 
 </body>
-</html>
+
+<footer>
+    <p>Designed by V. Alvarez and S. Lopez</p>
+</footer>
