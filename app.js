@@ -32,9 +32,8 @@ taskForm.addEventListener('submit', event => {
         newli.classList.add('taskTitle');
 
         const ourhtml = `
-         <div class="header" onclick ="showDetails()"> ${task.name}
-        </div>
-        <div class="content"> ${task.details}</div>`;
+         <div class="header" onclick ="showDetails('${task.name}','${task.details.Details}','${task.details.Priority}','${task.details.Deadline}')"> ${task.name}
+        </div>`;
         
         newli.innerHTML = ourhtml;
         listview.appendChild(newli);
@@ -46,8 +45,25 @@ taskForm.addEventListener('submit', event => {
 
 function openCreator(){
     document.getElementById("createTask").style.display="flex";
+    document.getElementById("seeTask").style.display="none";
 }
 
 function closeCreator() {
     document.getElementById("createTask").style.display = "none";
+    document.getElementById("seeTask").style.display="none";
+}
+
+function showDetails(name,Details,Priority,Deadline){
+    document.getElementById("seeTask").style.display="flex";
+    document.getElementById("createTask").style.display="none";
+    
+    let name1 = document.getElementById("name1");
+    let details1 = document.getElementById("details1");
+    let priority1 = document.getElementById("priority1");
+    let deadline1 = document.getElementById("deadline1");
+
+    name1.value =`${name}`
+    details1.value =`${Details}`
+    priority1.value =`${Priority}`
+    deadline1.value =`${Deadline}`
 }
