@@ -2,8 +2,8 @@ const taskForm = document.getElementById('creationForm');
 const taskList = [];
 
 /**Imprime lista de tareas*/
-function printList(List, htmlSpot){
-        List.forEach((task,index) => {
+function printList(List, htmlSpot) {
+    List.forEach((task, index) => {
         const newli = document.createElement('li');
         newli.classList.add('taskTitle');
         const ourhtml = `
@@ -11,20 +11,24 @@ function printList(List, htmlSpot){
         </div>`;
         newli.innerHTML = ourhtml;
         htmlSpot.appendChild(newli);
-})}
+    })
+}
 
 /**Crear tarea nueva*/
 taskForm.addEventListener('submit', event => {
     event.preventDefault();
-    listview.innerHTML='';
+    listview.innerHTML = '';
     let nombre = event.target.name.value;
-    let details = {"Details" : [event.target.details.value],
-                    "Priority" : [event.target.priority.value],
-                    "Deadline" : [event.target.deadline.value]
-    };  const Task = {
+    let details = {
+        "Details": [event.target.details.value],
+        "Priority": [event.target.priority.value],
+        "Deadline": [event.target.deadline.value]
+    };
+    const Task = {
         name: nombre,
         details: details
-    }; taskList.push(Task);
+    };
+    taskList.push(Task);
     const taskList_string = JSON.stringify(taskList);
     localStorage.setItem('taskList', taskList_string);
     taskForm.reset();
@@ -32,17 +36,18 @@ taskForm.addEventListener('submit', event => {
     console.log("tarea recuperada: ", taskList_temp);
     printList(taskList_temp, listview);
     closeCreator();
-    });
+});
 
-        
+
 /**Toggle de ventana de creación de tareas */
-function openCreator(){
-    document.getElementById("createTask").style.display="flex";
-    document.getElementById("seeTask").style.display="none";
+function openCreator() {
+    document.getElementById("createTask").style.display = "flex";
+    document.getElementById("seeTask").style.display = "none";
 }
+
 function closeCreator() {
     document.getElementById("createTask").style.display = "none";
-    document.getElementById("seeTask").style.display="none";
+    document.getElementById("seeTask").style.display = "none";
     let nameShow = document.getElementById("nameShow");
     let detailsShow = document.getElementById("detailsShow");
     let priorityShow = document.getElementById("priorityShow");
@@ -54,23 +59,23 @@ function closeCreator() {
 }
 
 /**Toggle para ver menu de detalles de tarea */
-function showDetails(name,Details,Priority,Deadline,index){
-    document.getElementById("seeTask").style.display="flex";
-    document.getElementById("createTask").style.display="none";
+function showDetails(name, Details, Priority, Deadline, index) {
+    document.getElementById("seeTask").style.display = "flex";
+    document.getElementById("createTask").style.display = "none";
 
-    let nameShow = document.getElementById("nameShow"); 
+    let nameShow = document.getElementById("nameShow");
     let detailsShow = document.getElementById("detailsShow");
     let priorityShow = document.getElementById("priorityShow");
     let deadlineShow = document.getElementById("deadlineShow");
 
-    nameShow.value =`${name}`
-    detailsShow.value =`${Details}`
-    priorityShow.value =`${Priority}`
-    deadlineShow.value =`${Deadline}`
+    nameShow.value = `${name}`
+    detailsShow.value = `${Details}`
+    priorityShow.value = `${Priority}`
+    deadlineShow.value = `${Deadline}`
 
     /**Marcar tarea como finalizada */
     const finished = document.getElementById('finishTask');
-    finished.onclick = function () {
+    finished.onclick = function() {
         finishedTask(index);
     };
     const finishedList = [];
@@ -92,8 +97,8 @@ function showDetails(name,Details,Priority,Deadline,index){
             newli.innerHTML = ourhtml;
             listview.appendChild(newli);
         };
-        closeCreator(); 
-        /**guardar tarea completada en array de terminadas */         
+        closeCreator();
+        /**guardar tarea completada en array de terminadas */
         let nombre1 = nameShow.value;
         const Task1 = {
             name: nombre1,
@@ -105,7 +110,7 @@ function showDetails(name,Details,Priority,Deadline,index){
         console.log("finalizadas: ", finishedList_temp);
         closeCreator();
         /**print de tareas terminadas */
-        finishedList_temp.forEach((task,index) => {
+        finishedList_temp.forEach((task, index) => {
             const newli = document.createElement('li');
             newli.classList.add('finishedTask');
             const ourhtml = `
@@ -113,12 +118,14 @@ function showDetails(name,Details,Priority,Deadline,index){
             </div>`;
             newli.innerHTML = ourhtml;
             doneList.appendChild(newli);
-        })};
-        const edit = document.getElementById('editInputs');
-        edit.onclick = function () {
-        editInputs(index)};
-/**Almacena modificacion de tarea */
-    function editInputs(index){
+        })
+    };
+    const edit = document.getElementById('editInputs');
+    edit.onclick = function() {
+        editInputs(index)
+    };
+    /**Almacena modificacion de tarea */
+    function editInputs(index) {
         let nameShow = document.getElementById("nameShow").value;
         let detailsShow = document.getElementById("detailsShow").value;
         let priorityShow = document.getElementById("priorityShow").value;
@@ -129,7 +136,8 @@ function showDetails(name,Details,Priority,Deadline,index){
                 Details: detailsShow,
                 Priority: priorityShow,
                 Deadline: deadlineShow
-            } };
+            }
+        };
         localStorage.setItem('taskList', JSON.stringify(taskList));
         listview.innerHTML = '';
         taskList.forEach((task, newIndex) => {
@@ -141,13 +149,14 @@ function showDetails(name,Details,Priority,Deadline,index){
             newli.innerHTML = ourhtml;
             listview.appendChild(newli);
         });
-        document.getElementById("editInputs").style.display="none"; 
+        document.getElementById("editInputs").style.display = "none";
         closeCreator();
-    }};
-    
-    /**Toggle boton editar, abre form para modificar los inputs */
-function editTask(){
-    document.getElementById("editInputs").style.display="flex"; 
+    }
+};
+
+/**Toggle boton editar, abre form para modificar los inputs */
+function editTask() {
+    document.getElementById("editInputs").style.display = "flex";
     let nameShow = document.getElementById("nameShow");
     let detailsShow = document.getElementById("detailsShow");
     let priorityShow = document.getElementById("priorityShow");
@@ -158,4 +167,3 @@ function editTask(){
     priorityShow.disabled = false;
     deadlineShow.disabled = false;
 }
-
