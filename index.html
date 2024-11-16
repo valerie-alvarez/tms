@@ -12,26 +12,24 @@
     <h1>To-Do List</h1>
 
     <div class="container">
-        
-            <button onclick="openCreator()" name="plus" class="open-button">+</button>
-       
-
+        <div class="subcontainer"><button onclick="openCreator()" name="plus" class="open-button">+</button></div>
+            
             <div class="creator-popup" id="createTask">
                 <form class="form-container" id="creationForm">
+                    <div class="header-wrapper"><button type="button" class="cancel" onclick="closeCreator()">X</button></div>
                     <div class="header-wrapper">
                         <h2>Create a new task</h2>
-                        <button type="button" class="cancel" onclick="closeCreator()">X</button>
                     </div>
                     
                     <label for="name">Name</label>
-                    <input type="text" placeholder="Finish TMS project . . ." name="name" required>
+                    <input type="text" placeholder="Finish. . ." name="name" required>
                     
                     <label for="details">Details</label>
-                    <input type="text" placeholder="Review requirements . . ." name="details">
+                    <input type="text" placeholder="Something . . ." name="details">
                     
                     <label for="priority">How urgent is it?</label>
                     <select name="priority">
-                        <option value="0">choose</option>
+                        <option value="0">Choose</option>
                         <option value="Critical">Do it yesterday ! ! !</option>
                         <option value="Urgent">Get on it NOW</option>
                         <option value="Important">On my radar</option>
@@ -44,70 +42,65 @@
                     
                     <button type="submit" class="btn">Create</button>
                 </div>
-                
-
-
+            
                 <div class="creator-popup" id="seeTask">
-                    <form class="form-container" id="creationForm"></form>
+                    <form class="form-container" id="creationForm">
                     <div class="header-wrapper">
-                        <button type="button" class="cancel" onclick="closeCreator()">X</button>
-                        <label for="name1">Name</label>
-                        <input id="name1" type="text" placeholder="Loading..." name="name1" disabled>
                         <button type="button" class="edit" onclick="editTask()">edit</button>
+                        <button type="button" class="cancel" onclick="closeCreator()">X</button>
+                    </div>
+                    <div class="body-wrapper">    
+                        <label for="name1">Name</label>
+                        <input id="name1" type="text" placeholder="Loading..." name="name1" disabled> 
                     </div>
                     
                     <div class="body-wrapper">
-                        
-                    <label for="details1">Details</label>
-                    <input id="details1" type="text" placeholder="Loading..." name="details1" disabled>
-                    
-                </div>
-                <div class="body-wrapper">
-                <label for="priority1">Priority</label>
-                    <select id="priority1" type="text" placeholder="Loading..." name="priority1" disabled>
-                        <option value="0">choose</option>
-                        <option value="Critical">Do it yesterday ! ! !</option>
-                        <option value="Urgent">Get on it NOW</option>
-                        <option value="Important">On my radar</option>
-                        <option value="Not so important">It can wait</option>
-                        <option value="Irrelevant">Eh, someday maybe</option>
-                    </select>
-                </div>  
-                <div class="body-wrapper">
-                    <label for="deadline1">Deadline</label>
-                    <input id="deadline1" type="date" placeholder="today" name="deadline1" disabled>
-                    
-                </div>  
+                        <label for="details1">Details</label>
+                        <input id="details1" type="text" placeholder="" name="details1" disabled>  
+                    </div>
+
+                    <div class="body-wrapper">
+                        <label for="priority1">Priority</label>
+                        <select id="priority1" type="text" placeholder="" name="priority1" disabled>
+                            <option value="0"></option>
+                            <option value="Critical">Do it yesterday ! ! !</option>
+                            <option value="Urgent">Get on it NOW</option>
+                            <option value="Important">On my radar</option>
+                            <option value="Not so important">It can wait</option>
+                            <option value="Irrelevant">Eh, someday maybe</option>
+                        </select>
+                    </div>  
+
+                    <div class="body-wrapper">
+                        <label for="deadline1">Deadline</label>
+                        <input id="deadline1" type="date" placeholder="" name="deadline1" disabled>
+                    </div>  
                 </form>
 
                 <div class="footer-wrapper">
-                    <button type="button" class="edit" id="editInputs">Save Task</button>
-                    <button type="button" class="done" id="finishTask">Finished?</button>                </div>
+                    <button type="button" class="save" id="editInputs">Save Task</button>
+                    <button type="button" class="done" id="finishTask">Finished?</button>                
+                </div>
             </div>
        
     
         
         <div id="list" class="subcontainer">
             <ul id=listview class="accordion">
-                <li class="taskTitle">
-                    <div class="header">you have no tasks</div>
-                    
-                    <div id = "detail" class="content">
-                    </div>
-                </li>
-        
+                <li class="taskTitle"><div class="header">you have no tasks</div></li>
             </ul>
         </div>
         
         <div id="finished" class="subcontainer">
             <ul id="doneList">
-                <li class="finishedTask"></li> 
-            </ul>
-            <p>Look at everything you've done!</p>
-        </div>
-        </div>
+                <li class="finishedTask">
+                    <div class="congrats">Look at everything you've done!</div>
+                </li> 
+            </ul>   
+        </div> 
     </div>
-
+        
+    
     <script src="app.js"></script>
 
 </body>
