@@ -60,22 +60,29 @@
                         
                     <label for="details1">Details</label>
                     <input id="details1" type="text" placeholder="Loading..." name="details1" disabled>
-                    <button type="button" class="edit" onclick="editTask()">edit</button>
+                    
                 </div>
                 <div class="body-wrapper">
                 <label for="priority1">Priority</label>
-                    <input id="priority1" type="text" placeholder="Loading..." name="priority1" disabled>
-                    <button type="button" class="edit" onclick="editTask()">edit</button>
+                    <select id="priority1" type="text" placeholder="Loading..." name="priority1" disabled>
+                        <option value="0">choose</option>
+                        <option value="Critical">Do it yesterday ! ! !</option>
+                        <option value="Urgent">Get on it NOW</option>
+                        <option value="Important">On my radar</option>
+                        <option value="Not so important">It can wait</option>
+                        <option value="Irrelevant">Eh, someday maybe</option>
+                    </select>
                 </div>  
                 <div class="body-wrapper">
                     <label for="deadline1">Deadline</label>
                     <input id="deadline1" type="date" placeholder="today" name="deadline1" disabled>
-                    <button type="button" class="edit" onclick="editTask()">edit</button>
+                    
                 </div>  
                 </form>
 
                 <div class="footer-wrapper">
-                    <button type="button" class="done">Finished?</button>                </div>
+                    <button type="button" class="edit" id="editInputs">Save Task</button>
+                    <button type="button" class="done" id="finishTask">Finished?</button>                </div>
             </div>
        
     
@@ -83,7 +90,7 @@
         <div id="list" class="subcontainer">
             <ul id=listview class="accordion">
                 <li class="taskTitle">
-                    <div class="header" onclick="showDetails(self)">you have no tasks</div>
+                    <div class="header">you have no tasks</div>
                     
                     <div id = "detail" class="content">
                     </div>
@@ -92,7 +99,10 @@
             </ul>
         </div>
         
-        <div class="subcontainer" id="doneList">
+        <div id="finished" class="subcontainer">
+            <ul id="doneList">
+                <li class="finishedTask"></li> 
+            </ul>
             <p>Look at everything you've done!</p>
         </div>
         </div>

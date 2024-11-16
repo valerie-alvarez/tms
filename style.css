@@ -106,7 +106,7 @@ h1{
     font-size: 20px;
     padding: 25px;
   }
-  .body-wrapper label{
+  .body-wrapper label, select{
     padding: 25px;
     color: #415111;
   }
@@ -170,16 +170,12 @@ h1{
   }
 
 #list{
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 250px;
-    overflow: scroll;
-}
-
-.taskcontainer{
-    padding-right: 20px;
-    padding-bottom: 15px;
+    
 }
 
 li{
@@ -188,13 +184,14 @@ li{
     position:relative;
     padding: 0.2em;
     cursor: pointer;
-    
 }
 
 .accordion {
     list-style-type: none;
+    width: 250px;
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
   }
 
 .accordion .header{
@@ -213,10 +210,7 @@ li{
   display: none;
  }
 
- .accordion .content::before{
-  display: block;
-  background-color: #C0E0FF;
- }
+
  footer{
     color:#AB9DFF;
     text-align: center;
