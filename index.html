@@ -48,18 +48,15 @@
                     <div class="header-wrapper">
                         <button type="button" class="edit" onclick="editTask()">edit</button>
                         <button type="button" class="cancel" onclick="closeCreator()">X</button>
-                    </div>
-                    <div class="body-wrapper">    
-                        <label for="nameShow">Name</label>
-                        <input id="nameShow" type="text" name="nameShow" disabled> 
+                        <button type="button" class="delete" onclick="deleteTask()">delete</button>
                     </div>
                     
-                    <div class="body-wrapper">
+                        <label for="nameShow">Name</label>
+                        <input id="nameShow" type="text" name="nameShow" disabled> 
+                   
                         <label for="detailsShow">Details</label>
                         <textarea id="detailsShow" placeholder="" name="detailsShow" style="overflow: auto" disabled></textarea> 
-                    </div>
-
-                    <div class="body-wrapper">
+                   
                         <label for="priorityShow">Priority</label>
                         <select id="priorityShow" type="text" placeholder="" name="priorityShow" disabled>
                             <option value="0"></option>
@@ -69,12 +66,10 @@
                             <option value="Not so important">Not so important</option>
                             <option value="Irrelevant">Irrelevant</option>
                         </select>
-                    </div>  
-
-                    <div class="body-wrapper">
+                    
                         <label for="deadlineShow">Deadline</label>
                         <input id="deadlineShow" type="date" placeholder="" name="deadlineShow" disabled>
-                    </div>  
+                 
                 </form>
 
                 <div class="footer-wrapper">

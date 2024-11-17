@@ -73,6 +73,7 @@ function showDetails(name, Details, Priority, Deadline, index) {
     priorityShow.value = `${Priority}`
     deadlineShow.value = `${Deadline}`
 
+    
     /**Marcar tarea como finalizada */
     const finished = document.getElementById('finishTask');
     finished.onclick = function() {
@@ -81,23 +82,9 @@ function showDetails(name, Details, Priority, Deadline, index) {
     const finishedList = [];
     /**Aquí define función para marcar la tarea como finalizada*/
     function finishedTask(index) {
-        /**eliminar tarea completada de array todo  */
-        taskList.splice(index, 1);
-        localStorage.setItem('taskList', JSON.stringify(taskList));
-        listview.innerHTML = '';
-        /**imprimir todo actualizada */
-        printList(taskList, listview);
-        const isEmpty = JSON.parse(localStorage.getItem('taskList'));
-        /**si no hay tareas, mostrar "u have no tasks" */
-        if (!isEmpty || isEmpty.length == 0) {
-            const newli = document.createElement('li');
-            newli.classList.add('taskTitle');
-            const ourhtml = `
-            <div class="header">you have no tasks</div>`;
-            newli.innerHTML = ourhtml;
-            listview.appendChild(newli);
-        };
-        closeCreator();
+       
+        deleteTask(index);
+      
         /**guardar tarea completada en array de terminadas */
         let nombre1 = nameShow.value;
         const Task1 = {
@@ -166,4 +153,25 @@ function editTask() {
     detailsShow.disabled = false;
     priorityShow.disabled = false;
     deadlineShow.disabled = false;
+}
+
+function deleteTask(index){
+    /**eliminar tarea de array todo */
+    taskList.splice(index, 1);
+    localStorage.setItem('taskList', JSON.stringify(taskList));
+    listview.innerHTML = '';
+    /**imprimir todo actualizada */
+    printList(taskList, listview);
+
+    const isEmpty = JSON.parse(localStorage.getItem('taskList'));
+        /**si no hay tareas, mostrar "u have no tasks" */
+        if (!isEmpty || isEmpty.length == 0) {
+            const newli = document.createElement('li');
+            newli.classList.add('taskTitle');
+            const ourhtml = `
+            <div class="header">you have no tasks</div>`;
+            newli.innerHTML = ourhtml;
+            listview.appendChild(newli);
+        };
+        closeCreator();
 }
