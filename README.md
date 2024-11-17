@@ -8,7 +8,5 @@ Esta app incluye:
 -Vista de tareas: se enlistan las tareas por orden de creación y al dar clic sobre el nombre de una tarea, se abre un menú para el RUD de la tarea.
 -Vista de tareas completadas.
 
-Lastimosamente, no incluye:
-
--Sorting de tareas según nivel de prioridad, o fecha límite (Req. pendiente).
+Solo tuvimos un Requerimiento pendiente de los que inicialmente nos propusimos realizar y fue el sorting de tareas según nivel de prioridad o fecha límite.
 
