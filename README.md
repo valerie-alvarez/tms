@@ -1,9 +1,14 @@
-Proyecto de TMS 2024-2
+Proyecto de TMS 2024-2: Creación de una app de lista de tareas con JS.
 
-Creación de una app de lista de tareas simple con JS, HTML.
+Aquí el link para acceder a nuestro backlog: https://github.com/users/valerie-alvarez/projects/1
 
-Ventana de creación de tareas: nombre, descripción (opcional), prioridad (opcional), fecha límite (opcional).
+Esta app incluye:
 
-Vista de tareas: se enlistan las tareas por orden de creación y al dar clic sobre el nombre de una tarea, se abre un menú que permite leer, eliminar, modificar la tarea y marcar como completada.
+-Ventana de creación de tareas: nombre, descripción (opcional), prioridad (opcional), fecha límite (opcional).
+-Vista de tareas: se enlistan las tareas por orden de creación y al dar clic sobre el nombre de una tarea, se abre un menú para el RUD de la tarea.
+-Vista de tareas completadas.
 
-Vista de tareas completadas
+Lastimosamente, no incluye:
+
+-Sorting de tareas según nivel de prioridad, o fecha límite (Req. pendiente).
+
